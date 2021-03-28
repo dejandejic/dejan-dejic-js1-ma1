@@ -1,28 +1,12 @@
-/*const cats = [
-    {
-        name: "Blob",
-        age: 10
-    },
-    {
-        name: "Harold",
-    },
-    {
-        name: "Blurt",
-        age: 21
-    }
-];*/
-
-
 // Question 1 
 
 const cat = {
-    complain: "Meow",
-    sayHello: function () {
-        console.log("My cat says " + this.complain);
+    complain: function() {
+        console.log("Meow!");
     }
 };
 
-cat.sayHello();
+cat.complain();
 
 //Question 2
 
@@ -51,17 +35,54 @@ console.log(heading.className)
 
 const paragraphs = document.querySelectorAll("p");
 
+
 for(let i = 0; i < paragraphs.length; i++) {
-    console.log(paragraphs);
+    paragraphs[i].style.color = "red";
 }
 
-paragraphs.style.color[i] = "green";
+console.log(paragraphs);
 
 // Question 6
 
 const resultsContainer = document.querySelector(".results"); 
 
 resultsContainer.innerHTML = "<p>New paragraph</p>";
-resultsContainer.style.color = "yellow";
+resultsContainer.style.backgroundColor = "yellow";
+
 
 // Question 7
+
+
+function catsList(list) {
+    for (let i = 0; i < list.length; i++) {
+      console.log(list[i].name);
+    }
+  }
+  
+  catsList(cats);
+
+ 
+//Question 8
+
+function createCats(cats) {
+    let html = "";
+    for (let i = 0; i < cats.length; i++) {
+      let ageProperty = "Age unknown";
+  
+      if (cats[i].age) {
+        ageProperty = cats[i].age;
+      }
+  
+      html += `<div>
+      <h5>${cats[i].name}</h5>
+      <p>${ageProperty}</p>
+      </div>
+      `;
+    }
+  
+    return html;
+  }
+  
+  const catsHtml = createCats(cats);
+  const catsContainer = document.querySelector(".cat-container");
+  catsContainer.innerHTML = catsHtml;
